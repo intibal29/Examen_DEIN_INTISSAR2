@@ -2,39 +2,50 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.stage.FileChooser?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.Controller">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.intissar.examen.Controles.MainController">
+    <top>
+        <MenuBar>
+            <Menu text="Ayuda">
+                <MenuItem text="Acerca de..." onAction="#mostrarAcercaDe"/>
+            </Menu>
+        </MenuBar>
+    </top>
     <center>
-        <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #00BFFF;" prefHeight="400.0" prefWidth="600.0">
+        <VBox spacing="10" alignment="TOP_CENTER" padding="10">
             <GridPane hgap="10" vgap="10">
                 <Label text="Código del producto:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
                 <TextField fx:id="codigoTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
                 <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <TextField fx:id="nombreTextField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200"/>
+                <TextField fx:id="nombreTextField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
                 <Label text="Precio:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
                 <TextField fx:id="precioTextField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                <CheckBox fx:id="disponibleCheckBox" text="Disponible" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Disponible:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <CheckBox fx:id="disponibleCheckBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
                 <Label text="Imagen:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                <Button fx:id="imagenButton" text="Seleccionar Imagen..." GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Button text="Seleccionar Imagen" onAction="#seleccionarImagen" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                <ImageView fx:id="imagenPreview" fitWidth="100" fitHeight="100" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
             </GridPane>
 
-            <HBox alignment="CENTER" spacing="20">
-                <Button fx:id="crearButton" text="Crear"/>
-                <Button fx:id="actualizarButton" text="Actualizar" disable="true"/>
-                <Button fx:id="limpiarButton" text="Limpiar"/>
+            <HBox spacing="10">
+                <Button text="Crear" onAction="#crearProducto"/>
+                <Button text="Actualizar" fx:id="actualizarButton" disable="true" onAction="#actualizarProducto"/>
+                <Button text="Limpiar" onAction="#limpiarFormulario"/>
             </HBox>
 
-            <TableView fx:id="tablaProductos" prefWidth="550" prefHeight="200">
+            <TableView fx:id="productoTable" onMouseClicked="#cargarProductoSeleccionado">
                 <columns>
-                    <TableColumn fx:id="codigoColumn" text="CÓDIGO" prefWidth="100"/>
-                    <TableColumn fx:id="nombreColumn" text="NOMBRE" prefWidth="150"/>
-                    <TableColumn fx:id="precioColumn" text="PRECIO" prefWidth="100"/>
-                    <TableColumn fx:id="disponibleColumn" text="DISPONIBLE" prefWidth="100"/>
+                    <TableColumn fx:id="codigoColumn" text="Código"/>
+                    <TableColumn fx:id="nombreColumn" text="Nombre"/>
+                    <TableColumn fx:id="precioColumn" text="Precio"/>
+                    <TableColumn fx:id="disponibleColumn" text="Disponible"/>
                 </columns>
             </TableView>
         </VBox>

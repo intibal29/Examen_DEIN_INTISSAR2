@@ -3,51 +3,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.stage.FileChooser?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.intissar.examen.Controles.MainController">
-    <top>
-        <MenuBar>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.intissar.examen.Controles.ProductosController"  stylesheets="@../Style/css.css">
+    <children>
+        <Label text="Gestión de Productos" layoutX="20" layoutY="20" style="-fx-font-size: 24px;"/>
+
+
+        <TableView fx:id="tablaProductos" layoutX="20" layoutY="60" prefWidth="600" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colCodigo" text="Código" prefWidth="100"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="200"/>
+                <TableColumn fx:id="colPrecio" text="Precio" prefWidth="100"/>
+                <TableColumn fx:id="colImagen" text="Imagen" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <Button fx:id="btnActualizar" text="Actualizar" layoutX="640" layoutY="60" disable="true"/>
+        <Button fx:id="btnCrear" text="Crear" layoutX="640" layoutY="100"/>
+        <Button fx:id="btnLimpiar" text="Limpiar" layoutX="640" layoutY="140"/>
+        <Button fx:id="btnEliminar" text="Eliminar" layoutX="640" layoutY="180"/>
+        <Button fx:id="btnVerImagen" text="Ver Imagen" layoutX="640" layoutY="220"/>
+
+        <TextField fx:id="txtCodigo" layoutX="20" layoutY="480" promptText="Código (5 caracteres)" />
+        <TextField fx:id="txtNombre" layoutX="20" layoutY="520" promptText="Nombre" />
+        <TextField fx:id="txtPrecio" layoutX="20" layoutY="560" promptText="Precio" />
+        <Button fx:id="btnSeleccionarImagen" text="Seleccionar Imagen" layoutX="20" layoutY="600"/>
+
+        <ImageView fx:id="imagenVista" layoutX="200" layoutY="600" fitWidth="300" fitHeight="300"/>
+
+        <MenuBar layoutY="0">
             <Menu text="Ayuda">
                 <MenuItem text="Acerca de..." onAction="#mostrarAcercaDe"/>
             </Menu>
         </MenuBar>
-    </top>
-    <center>
-        <VBox spacing="10" alignment="TOP_CENTER" padding="10">
-            <GridPane hgap="10" vgap="10">
-                <Label text="Código del producto:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <TextField fx:id="codigoTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-
-                <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <TextField fx:id="nombreTextField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-
-                <Label text="Precio:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <TextField fx:id="precioTextField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-
-                <Label text="Disponible:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                <CheckBox fx:id="disponibleCheckBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-
-                <Label text="Imagen:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                <Button text="Seleccionar Imagen" onAction="#seleccionarImagen" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-
-                <ImageView fx:id="imagenPreview" fitWidth="100" fitHeight="100" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-            </GridPane>
-
-            <HBox spacing="10">
-                <Button text="Crear" onAction="#crearProducto"/>
-                <Button text="Actualizar" fx:id="actualizarButton" disable="true" onAction="#actualizarProducto"/>
-                <Button text="Limpiar" onAction="#limpiarFormulario"/>
-            </HBox>
-
-            <TableView fx:id="productoTable" onMouseClicked="#cargarProductoSeleccionado">
-                <columns>
-                    <TableColumn fx:id="codigoColumn" text="Código"/>
-                    <TableColumn fx:id="nombreColumn" text="Nombre"/>
-                    <TableColumn fx:id="precioColumn" text="Precio"/>
-                    <TableColumn fx:id="disponibleColumn" text="Disponible"/>
-                </columns>
-            </TableView>
-        </VBox>
-    </center>
-</BorderPane>
+    </children>
+</AnchorPane>

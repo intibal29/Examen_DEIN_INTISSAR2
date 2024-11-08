@@ -1,0 +1,44 @@
+[
+  {
+    "codigo": "BOLL5",
+    "nombre": "BOLLERIA",
+    "precio": "2.10",
+    "disponible": true
+  },
+  {
+    "codigo": "CHORI",
+    "nombre": "CHORIZO",
+    "precio": "3.25",
+    "disponible": false
+  },
+  {
+    "codigo": "JAM67",
+    "nombre": "JAMON",
+    "precio": "4.21",
+    "disponible": true
+  },
+  {
+    "codigo": "LIM33",
+    "nombre": "LIMONES",
+    "precio": "1.89",
+    "disponible": false
+  },
+  {
+    "codigo": "NAR44",
+    "nombre": "NARANJAS",
+    "precio": "1.69",
+    "disponible": false
+  },
+  {
+    "codigo": "PLT32",
+    "nombre": "PLATANOS",
+    "precio": "1.75",
+    "disponible": false
+  },
+  {
+    "codigo": "SALM1",
+    "nombre": "SALMON",
+    "precio": "12.05",
+    "disponible": false
+  }
+]

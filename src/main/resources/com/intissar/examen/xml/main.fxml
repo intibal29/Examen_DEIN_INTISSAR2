@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.Controller">
+    <center>
+        <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #00BFFF;" prefHeight="400.0" prefWidth="600.0">
+            <GridPane hgap="10" vgap="10">
+                <Label text="Código del producto:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="codigoTextField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="nombreTextField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200"/>
+
+                <Label text="Precio:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="precioTextField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <CheckBox fx:id="disponibleCheckBox" text="Disponible" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Imagen:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <Button fx:id="imagenButton" text="Seleccionar Imagen..." GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox alignment="CENTER" spacing="20">
+                <Button fx:id="crearButton" text="Crear"/>
+                <Button fx:id="actualizarButton" text="Actualizar" disable="true"/>
+                <Button fx:id="limpiarButton" text="Limpiar"/>
+            </HBox>
+
+            <TableView fx:id="tablaProductos" prefWidth="550" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="codigoColumn" text="CÓDIGO" prefWidth="100"/>
+                    <TableColumn fx:id="nombreColumn" text="NOMBRE" prefWidth="150"/>
+                    <TableColumn fx:id="precioColumn" text="PRECIO" prefWidth="100"/>
+                    <TableColumn fx:id="disponibleColumn" text="DISPONIBLE" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
